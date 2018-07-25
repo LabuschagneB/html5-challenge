@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="css/custom.css">
+    <meta name="theme-color" content="#2a5e8a">
+    <title>Hello, world!</title>
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="manifest" href="manifest.webmanifest">
+</head>
+
+<body>
+    <video poster="images/mt-baker-bg.jpg" id="bgvid" playsinline="" autoplay="" muted="" loop="" class="">
+            <source src="video/mt-baker.webm" type="video/webm">
+            <source src="video/mt-baker.mp4" type="video/mp4">
+        </video>
+    <div id="polina">
+        <button>Pause</button>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/pwacompat@2.0.6/pwacompat.min.js" integrity="sha384-GOaSLecPIMCJksN83HLuYf9FToOiQ2Df0+0ntv7ey8zjUHESXhthwvq9hXAZTifA" crossorigin="anonymous"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyAtGtmH0EhSvcL6SOU5T93Cfhi1QynGe34",
+            authDomain: "pwa-html.firebaseapp.com",
+            databaseURL: "https://pwa-html.firebaseio.com",
+            projectId: "pwa-html",
+            storageBucket: "pwa-html.appspot.com",
+            messagingSenderId: "1076017164504"
+        };
+        firebase.initializeApp(config);
+
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js');
+        }
+
+        var vid = document.getElementById("bgvid");
+        var pauseButton = document.querySelector("#polina button");
+
+        if (window.matchMedia('(prefers-reduced-motion)').matches) {
+            vid.removeAttribute("autoplay");
+            vid.pause();
+            pauseButton.innerHTML = "Paused";
+        }
+
+        function vidFade() {
+            vid.classList.add("stopfade");
+        }
+
+        vid.addEventListener('ended', function() {
+            // only functional if "loop" is removed 
+            vid.pause();
+            // to capture IE10
+            vidFade();
+        });
+
+
+        pauseButton.addEventListener("click", function() {
+            vid.classList.toggle("stopfade");
+            if (vid.paused) {
+                vid.play();
+                pauseButton.innerHTML = "Pause";
+            } else {
+                vid.pause();
+                pauseButton.innerHTML = "Paused";
+            }
+        })
+    </script>
+</body>
+
+</html>
