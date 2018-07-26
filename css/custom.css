@@ -1,6 +1,42 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,500,900");
+*,
+::before,
+::after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+::-webkit-input-placeholder {
+  color: #e6e6e6;
+}
+
+::-moz-placeholder {
+  color: #e6e6e6;
+}
+
+:-ms-input-placeholder {
+  color: #e6e6e6;
+}
+
+:-moz-placeholder {
+  color: #e6e6e6;
+}
+
 body {
   margin: 0;
-  background-color: #6a97aa;
+  background-color: #4288cc;
+  font-family: 'Roboto', sans-serif;
+  cursor: default;
+}
+
+a {
+  text-decoration: none;
+}
+
+body,
+h1,
+h3 {
+  font-weight: 500;
 }
 
 #bgvid {
@@ -16,42 +52,370 @@ body {
           transform: translateX(-50%) translateY(-50%);
   background: url("../images/mt-baker-bg.jpg") no-repeat;
   background-size: cover;
-  -webkit-transition: 1s opacity;
-  transition: 1s opacity;
 }
 
-.content {
+.content-overlay {
   position: fixed;
   bottom: 0;
   top: 0;
   left: 0;
   right: 0;
   background: rgba(0, 0, 0, 0.5);
-  color: #f1f1f1;
+  color: #f2f2f2;
   width: 100%;
   padding: 20px;
 }
 
-#PauseBtn {
-  width: 200px;
-  font-size: 18px;
-  padding: 10px;
-  border: none;
-  background: #000;
+.content-overlay .content {
+  margin-top: 4rem;
+  margin-left: 2rem;
+}
+
+.content-overlay .content h1 {
+  font-weight: 900;
+  font-size: 5.5rem;
+  margin-top: 0;
+  margin-bottom: 2rem;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
+  -webkit-animation-delay: 0;
+  -webkit-animation-duration: 0.5s;
+  -webkit-animation-name: slide-in-left;
+  -webkit-animation-fill-mode: fowards;
+  -webkit-animation-direction: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  -moz-animation-delay: 0;
+  -moz-animation-duration: 0.5s;
+  -moz-animation-name: slide-in-left;
+  -moz-animation-fill-mode: fowards;
+  -moz-animation-direction: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  animation-delay: 0;
+  animation-duration: 0.5s;
+  animation-name: slide-in-left;
+  animation-fill-mode: fowards;
+  animation-direction: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.content-overlay .content h3 {
+  color: #cccccc;
+  font-size: 1.9rem;
+  -webkit-animation-delay: 0;
+  -webkit-animation-duration: 0.5s;
+  -webkit-animation-name: slide-in-right;
+  -webkit-animation-fill-mode: fowards;
+  -webkit-animation-direction: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  -moz-animation-delay: 0;
+  -moz-animation-duration: 0.5s;
+  -moz-animation-name: slide-in-right;
+  -moz-animation-fill-mode: fowards;
+  -moz-animation-direction: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  animation-delay: 0;
+  animation-duration: 0.5s;
+  animation-name: slide-in-right;
+  animation-fill-mode: fowards;
+  animation-direction: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+}
+
+.content-overlay .content input[type="text"] {
+  background-color: rgba(255, 255, 255, 0);
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  padding: 15px;
+  min-width: 640px;
+  font-size: 1.3rem;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  color: #f2f2f2;
+  -webkit-animation-delay: 0;
+  -webkit-animation-duration: 0.5s;
+  -webkit-animation-name: slide-in-bottom;
+  -webkit-animation-fill-mode: fowards;
+  -webkit-animation-direction: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  -moz-animation-delay: 0;
+  -moz-animation-duration: 0.5s;
+  -moz-animation-name: slide-in-bottom;
+  -moz-animation-fill-mode: fowards;
+  -moz-animation-direction: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  animation-delay: 0;
+  animation-duration: 0.5s;
+  animation-name: slide-in-bottom;
+  animation-fill-mode: fowards;
+  animation-direction: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.content-overlay .content button {
+  -webkit-animation-delay: 0;
+  -webkit-animation-duration: 0.5s;
+  -webkit-animation-name: slide-in-bottom;
+  -webkit-animation-fill-mode: fowards;
+  -webkit-animation-direction: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  -moz-animation-delay: 0;
+  -moz-animation-duration: 0.5s;
+  -moz-animation-name: slide-in-bottom;
+  -moz-animation-fill-mode: fowards;
+  -moz-animation-direction: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  animation-delay: 0;
+  animation-duration: 0.5s;
+  animation-name: slide-in-bottom;
+  animation-fill-mode: fowards;
+  animation-direction: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  background-color: #4288cc;
+  border: 2px solid #4288cc;
+  padding: 15px;
+  font-size: 1.3rem;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  font-weight: 900;
   color: #fff;
   cursor: pointer;
+  margin-left: 15px;
+  -webkit-transition: all 0.6s ease;
+  transition: all 0.6s ease;
 }
 
-#PauseBtn:hover {
-  background: #ddd;
-  color: black;
-  -webkit-transition: .6s background;
-  transition: .6s background;
+.content-overlay .content button:hover {
+  background-color: transparent;
+  -webkit-transition: all 0.6s ease;
+  transition: all 0.6s ease;
 }
 
-@media screen and (max-width: 769px) {
+.content-overlay .content .social-networking-links {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  width: 100%;
+  -webkit-animation-delay: 0;
+  -webkit-animation-duration: 0.5s;
+  -webkit-animation-name: slide-in-bottom;
+  -webkit-animation-fill-mode: fowards;
+  -webkit-animation-direction: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  -moz-animation-delay: 0;
+  -moz-animation-duration: 0.5s;
+  -moz-animation-name: slide-in-bottom;
+  -moz-animation-fill-mode: fowards;
+  -moz-animation-direction: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  animation-delay: 0;
+  animation-duration: 0.5s;
+  animation-name: slide-in-bottom;
+  animation-fill-mode: fowards;
+  animation-direction: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.content-overlay .content .social-networking-links a {
+  margin: 0rem 0.5rem;
+  color: rgba(255, 255, 255, 0.5);
+  -webkit-transition: color 0.5s ease;
+  transition: color 0.5s ease;
+}
+
+.content-overlay .content .social-networking-links a:hover {
+  color: rgba(255, 255, 255, 0.9);
+  -webkit-transition: color 0.5s ease;
+  transition: color 0.5s ease;
+}
+
+.content-overlay .content .social-networking-links a:first-child {
+  margin-left: 0;
+}
+
+.content-overlay .content abbr[title] {
+  cursor: help;
+}
+
+.content-overlay .content .footer-text {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.9rem;
+  margin: 0;
+  -webkit-animation-delay: 0;
+  -webkit-animation-duration: 0.5s;
+  -webkit-animation-name: slide-in-bottom;
+  -webkit-animation-fill-mode: fowards;
+  -webkit-animation-direction: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  -moz-animation-delay: 0;
+  -moz-animation-duration: 0.5s;
+  -moz-animation-name: slide-in-bottom;
+  -moz-animation-fill-mode: fowards;
+  -moz-animation-direction: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  animation-delay: 0;
+  animation-duration: 0.5s;
+  animation-name: slide-in-bottom;
+  animation-fill-mode: fowards;
+  animation-direction: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  font-weight: 400;
+}
+
+#message {
+  visibility: hidden;
+  min-width: 200px;
+  margin-left: -100px;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #82c91e;
+  text-align: center;
+  border-radius: 5px;
+  padding: 16px;
+  position: fixed;
+  z-index: 1;
+  left: 50%;
+  bottom: 30px;
+}
+
+#message.show {
+  visibility: visible;
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@-webkit-keyframes fadein {
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: 30px;
+    opacity: 1;
+  }
+}
+
+@keyframes fadein {
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: 30px;
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeout {
+  from {
+    bottom: 30px;
+    opacity: 1;
+  }
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
+}
+
+@keyframes fadeout {
+  from {
+    bottom: 30px;
+    opacity: 1;
+  }
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes slide-in-left {
+  0% {
+    -webkit-transform: translateX(-1000px);
+    transform: translateX(-1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in-left {
+  0% {
+    -webkit-transform: translateX(-1000px);
+    transform: translateX(-1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes slide-in-right {
+  0% {
+    -webkit-transform: translateX(1000px);
+    transform: translateX(1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in-right {
+  0% {
+    -webkit-transform: translateX(1000px);
+    transform: translateX(1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes slide-in-bottom {
+  0% {
+    -webkit-transform: translateY(1000px);
+    transform: translateY(1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in-bottom {
+  0% {
+    -webkit-transform: translateY(1000px);
+    transform: translateY(1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@media screen and (max-width: 850px) {
   #bgvid {
     background: url("../images/mt-baker-bg-sm.jpg") no-repeat;
+  }
+  .content-overlay .content input[type="text"] {
+    min-width: 50%;
+  }
+  .content-overlay .content {
+    margin-top: 0;
+  }
+  .content-overlay .content h3 {
+    padding-top: 0rem;
+    font-size: 1.5rem;
+    padding-bottom: 0rem;
+  }
+}
+
+@media screen and (max-width: 530px) {
+  .content-overlay .content {
+    margin-left: 0;
+  }
+  .content-overlay .content h1 {
+    font-size: 3rem;
+  }
+  .content-overlay .content input[type="text"] {
+    min-width: 100%;
+  }
+  .content-overlay .content button {
+    margin-left: 0;
+    width: 100%;
+    margin-top: 1rem;
   }
 }
 /*# sourceMappingURL=custom.css.map */

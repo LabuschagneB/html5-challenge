@@ -1,6 +1,86 @@
+$white: #fff;
+$primary-color: #4288cc;
+@mixin keyframes($name) {
+    @-webkit-keyframes #{$name} {
+        @content;
+    }
+    @-moz-keyframes #{$name} {
+        @content;
+    }
+    @-ms-keyframes #{$name} {
+        @content;
+    }
+    @keyframes #{$name} {
+        @content;
+    }
+}
+
+@mixin animation ($delay, $duration, $animation, $direction: forward, $fillmode: fowards) {
+    -webkit-animation-delay: $delay;
+    -webkit-animation-duration: $duration;
+    -webkit-animation-name: $animation;
+    -webkit-animation-fill-mode: $fillmode;
+    -webkit-animation-direction: $direction;
+    -moz-animation-delay: $delay;
+    -moz-animation-duration: $duration;
+    -moz-animation-name: $animation;
+    -moz-animation-fill-mode: $fillmode;
+    -moz-animation-direction: $direction;
+    animation-delay: $delay;
+    animation-duration: $duration;
+    animation-name: $animation;
+    animation-fill-mode: $fillmode;
+    animation-direction: $direction;
+}
+
+@mixin transition($what: all, $time: 0.5s, $how: ease) {
+    -webkit-transition: $what $time $how;
+    -moz-transition: $what $time $how;
+    -ms-transition: $what $time $how;
+    -o-transition: $what $time $how;
+    transition: $what $time $how;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,900');
+*,
+ ::before,
+ ::after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+::-webkit-input-placeholder {
+    color: darken($white, 10%);
+}
+
+ ::-moz-placeholder {
+    color: darken($white, 10%);
+}
+
+ :-ms-input-placeholder {
+    color: darken($white, 10%);
+}
+
+ :-moz-placeholder {
+    color: darken($white, 10%);
+}
+
 body {
     margin: 0;
-    background-color: #6a97aa;
+    background-color: $primary-color;
+    font-family: 'Roboto', sans-serif;
+    cursor: default;
+}
+
+a {
+    text-decoration: none;
+}
+
+body,
+h1,
+h3 {
+    font-weight: 500;
 }
 
 #bgvid {
@@ -15,38 +95,251 @@ body {
     transform: translateX(-50%) translateY(-50%);
     background: url('../images/mt-baker-bg.jpg') no-repeat;
     background-size: cover;
-    transition: 1s opacity;
 }
 
-.content {
+.content-overlay {
     position: fixed;
     bottom: 0;
     top: 0;
     left: 0;
     right: 0;
     background: rgba(0, 0, 0, 0.5);
-    color: #f1f1f1;
+    color: darken($white, 5%);
     width: 100%;
     padding: 20px;
-}
-
-#PauseBtn {
-    width: 200px;
-    font-size: 18px;
-    padding: 10px;
-    border: none;
-    background: #000;
-    color: #fff;
-    cursor: pointer;
-    &:hover {
-        background: #ddd;
-        color: black;
-        transition: .6s background;
+    .content {
+        margin-top: 4rem;
+        margin-left: 2rem;
+        h1 {
+            font-weight: 900;
+            font-size: 5.5rem;
+            margin-top: 0;
+            margin-bottom: 2rem;
+            text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
+            @include animation(0,
+            0.5s,
+            slide-in-left,
+            cubic-bezier(0.250,
+            0.460,
+            0.450,
+            0.940));
+        }
+        h3 {
+            color: darken($white, 20%);
+            font-size: 1.9rem;
+            @include animation(0,
+            0.5s,
+            slide-in-right,
+            cubic-bezier(0.250,
+            0.460,
+            0.450,
+            0.940));
+            padding-top: 1rem;
+            padding-bottom: 2rem;
+        }
+        input[type="text"] {
+            background-color: rgba(255, 255, 255, 0);
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            padding: 15px;
+            min-width: 640px;
+            font-size: 1.3rem;
+            border-radius: 10px;
+            -webkit-border-radius: 10px;
+            color: darken($white, 5%);
+            @include animation(0,
+            0.5s,
+            slide-in-bottom,
+            cubic-bezier(0.250,
+            0.460,
+            0.450,
+            0.940));
+        }
+        button {
+            @include animation(0,
+            0.5s,
+            slide-in-bottom,
+            cubic-bezier(0.250,
+            0.460,
+            0.450,
+            0.940));
+            background-color: $primary-color;
+            border: 2px solid $primary-color;
+            padding: 15px;
+            font-size: 1.3rem;
+            border-radius: 10px;
+            -webkit-border-radius: 10px;
+            font-weight: 900;
+            color: $white;
+            cursor: pointer;
+            margin-left: 15px;
+            @include transition(all,
+            0.6s,
+            ease);
+            &:hover {
+                background-color: transparent;
+                @include transition(all,
+                0.6s,
+                ease);
+            }
+        }
+        .social-networking-links {
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            width: 100%;
+            @include animation(0,
+            0.5s,
+            slide-in-bottom,
+            cubic-bezier(0.250,
+            0.460,
+            0.450,
+            0.940));
+            a {
+                margin: 0rem 0.5rem;
+                color: rgba(255, 255, 255, 0.5);
+                @include transition(color,
+                0.5s,
+                ease);
+                &:hover {
+                    color: rgba(255, 255, 255, 0.9);
+                    @include transition(color,
+                    0.5s,
+                    ease);
+                }
+            }
+            a:first-child {
+                margin-left: 0;
+            }
+        }
+        abbr[title] {
+            cursor: help;
+        }
+        .footer-text {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+            margin: 0;
+            @include animation(0,
+            0.5s,
+            slide-in-bottom,
+            cubic-bezier(0.250,
+            0.460,
+            0.450,
+            0.940));
+            font-weight: 400;
+        }
     }
 }
 
-@media screen and (max-width: 769px) {
+#message {
+    visibility: hidden;
+    min-width: 200px;
+    margin-left: -100px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #82c91e;
+    text-align: center;
+    border-radius: 5px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    bottom: 30px;
+    &.show {
+        visibility: visible;
+        -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    }
+}
+
+@include keyframes(fadein) {
+    from {
+        bottom: 0;
+        opacity: 0;
+    }
+    to {
+        bottom: 30px;
+        opacity: 1;
+    }
+}
+
+@include keyframes(fadeout) {
+    from {
+        bottom: 30px;
+        opacity: 1;
+    }
+    to {
+        bottom: 0;
+        opacity: 0;
+    }
+}
+
+@include keyframes(slide-in-left) {
+    0% {
+        -webkit-transform: translateX(-1000px);
+        transform: translateX(-1000px);
+        opacity: 0;
+    }
+    100% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@include keyframes(slide-in-right) {
+    0% {
+        -webkit-transform: translateX(1000px);
+        transform: translateX(1000px);
+        opacity: 0;
+    }
+    100% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@include keyframes(slide-in-bottom) {
+    0% {
+        -webkit-transform: translateY(1000px);
+        transform: translateY(1000px);
+        opacity: 0;
+    }
+    100% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@media screen and (max-width: 850px) {
     #bgvid {
         background: url('../images/mt-baker-bg-sm.jpg') no-repeat;
+    }
+    .content-overlay .content input[type="text"] {
+        min-width: 50%;
+    }
+    .content-overlay .content {
+        margin-top: 0;
+    }
+    .content-overlay .content h3 {
+        padding-top: 0rem;
+        font-size: 1.5rem;
+        padding-bottom: 0rem;
+    }
+}
+
+@media screen and (max-width: 530px) {
+    .content-overlay .content {
+        margin-left: 0;
+    }
+    .content-overlay .content h1 {
+        font-size: 3rem;
+    }
+    .content-overlay .content input[type="text"] {
+        min-width: 100%;
+    }
+    .content-overlay .content button {
+        margin-left: 0;
+        width: 100%;
+        margin-top: 1rem;
     }
 }

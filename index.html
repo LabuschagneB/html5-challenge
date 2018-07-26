@@ -4,9 +4,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
     <link rel="stylesheet" href="css/custom.css">
     <meta name="theme-color" content="#333333">
-    <title>Hello, world!</title>
+    <title>Eventually</title>
     <link rel="shortcut icon" href="favicon.png">
     <link rel="manifest" href="manifest.webmanifest">
 </head>
@@ -16,9 +17,25 @@
         <source src="video/mt-baker.webm" type="video/webm">
         <source src="video/mt-baker.mp4" type="video/mp4">
     </video>
-    <div class="content">
-        <button id="PauseBtn" onclick="myFunction()">Pause</button>
-    </div>
+    <main role="main" class="content-overlay">
+        <section class="content">
+            <hgroup>
+                <h1>Eventually</h1>
+                <h3>A simple template for telling the world when you'll launch<br>your next big thing. Brought to you by <abbr title="HyperText Markup Language">HTML5 UP.</abbr></h3>
+            </hgroup>
+            <input type="text" required placeholder="Email Address">
+            <button type="button" onclick="myFunction()">Sign Up</button>
+            <div class="social-networking-links">
+                <a href="https://twitter.com/labuschagneb" target="_blank"><i class="fab fa-twitter fa-lg"></i></a>
+                <a href="https://www.instagram.com/bryan.labuschagne/" target="_blank"><i class="fab fa-instagram fa-lg"></i></a>
+                <a href="https://github.com/LabuschagneB" target="_blank"><i class="fab fa-github fa-lg"></i></a>
+                <a href="mailto:bryanlabuschagne@gmail.com"><i class="far fa-envelope fa-lg"></i></a>
+            </div>
+            <p class="footer-text">&copy; Untitled. | Credits: <abbr title="HyperText Markup Language">HTML5 UP.</abbr></p>
+        </section>
+    </main>
+    <div id="message"><i class="fas fa-check"></i> &nbsp; Success</div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/pwacompat@2.0.6/pwacompat.min.js" integrity="sha384-GOaSLecPIMCJksN83HLuYf9FToOiQ2Df0+0ntv7ey8zjUHESXhthwvq9hXAZTifA" crossorigin="anonymous"></script>
     <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js"></script>
     <script>
@@ -37,17 +54,12 @@
             navigator.serviceWorker.register('sw.js');
         }
 
-        var video = document.getElementById("bgvid");
-        var btn = document.getElementById("PauseBtn");
-
         function myFunction() {
-            if (video.paused) {
-                video.play();
-                btn.innerHTML = "Pause";
-            } else {
-                video.pause();
-                btn.innerHTML = "Play";
-            }
+            var x = document.getElementById("message");
+            x.className = "show";
+            setTimeout(function() {
+                x.className = x.className.replace("show", "");
+            }, 3000);
         }
     </script>
 </body>
